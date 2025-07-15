@@ -7,11 +7,13 @@ public class SpriteFlipper : MonoBehaviour
     GetMousePos mousePos;
     SpriteRenderer sRend;
     string attachedGO;
+    ChangeWeaponPosition cWepPos;
 
     private void Start()
     {
         CheckAttachedGO();
         mousePos = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GetMousePos>();
+        cWepPos = GetComponent<ChangeWeaponPosition>();
     }
 
     private void Update()
@@ -30,12 +32,14 @@ public class SpriteFlipper : MonoBehaviour
         {
             sRend.flipX = true;
             isFlipped = true;
+            cWepPos.WeaponOnLeftSide();
             Debug.Log("Flipped");
         }
         else if(isFlipped && transform.position.x < target.x)
         {
             sRend.flipX = false;
             isFlipped = false;
+            cWepPos.WeaponOnRightSide();
             Debug.Log("Unflipped");
         }
     }
