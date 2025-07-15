@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Attacks : MonoBehaviour
 {
     public GameObject parentChar;
-
     public GameObject swordWave;
     Timer timer;
 

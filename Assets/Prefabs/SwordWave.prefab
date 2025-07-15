@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 5861853701692713459}
   - component: {fileID: 6016721730525785100}
   - component: {fileID: -3142495189304346878}
+  - component: {fileID: -4989576689304462179}
   - component: {fileID: -6576557291739972256}
   - component: {fileID: -5476209404782743777}
+  - component: {fileID: 2980966749246994566}
   m_Layer: 0
   m_Name: SwordWave
   m_TagString: Attack
@@ -103,6 +105,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSize: {x: 0, y: 0, z: 0}
+--- !u!114 &-4989576689304462179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646245474446852712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14cc5b9b31d2924888e2f5c22f49684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-6576557291739972256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +177,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0909632, y: 1.0188315}
   m_EdgeRadius: 0
+--- !u!114 &2980966749246994566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646245474446852712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14cc5b9b31d2924888e2f5c22f49684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
