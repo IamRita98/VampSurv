@@ -390,6 +390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971bd69674b61654c8071e534541ccd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponPosR: {fileID: 330958178909680948}
+  weaponPosL: {fileID: 4022483398351006413}
+  weapon: {fileID: 523264884350635382}
 --- !u!50 &3035703414892471132
 Rigidbody2D:
   serializedVersion: 5

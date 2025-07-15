@@ -3,16 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteFlipper))]
 public class ChangeWeaponPosition : MonoBehaviour
 {
-    private Transform weaponPosR;
-    private Transform weaponPosL;
-    private GameObject weapon;
+    public Transform weaponPosR;
+    public Transform weaponPosL;
+    public GameObject weapon;
+    //This script will become irrelevent if I make a sprite w/ the weapon attached to it. Sprite Flipper will just put the weap on the other side
+    //But for now I like how it looks :)
 
     private void Start()
     {
-        weapon = transform.GetChild(0).GetChild(0).gameObject;
-        weaponPosR = transform.GetChild(0).GetChild(1);
-        weaponPosL = transform.GetChild(0).GetChild(2);
-
         weapon.transform.position = weaponPosR.position;
     }
 
