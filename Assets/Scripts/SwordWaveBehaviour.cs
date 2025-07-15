@@ -8,7 +8,7 @@ public class SwordWaveBehaviour : MonoBehaviour
 
     Attacks atks;
 
-    public Vector3 targetSize;
+    Vector3 targetSize;
 
     private void Awake()
     {

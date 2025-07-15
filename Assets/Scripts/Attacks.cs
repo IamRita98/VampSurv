@@ -14,14 +14,13 @@ public class Attacks : MonoBehaviour
     public float projectileDuration;
     public float projectileArea;
 
-    public string charName;
     Stats stats;
 
-    Dictionary<string, List<float>> charWepStats = new();
+
+    Dictionary<Stats.CharacterName, List<float>> charWepStats = new();
     void Start()
     {
         stats = parentChar.GetComponent<Stats>();
-        charName = stats.charName;
 
         InstantiateDictionary();
 
@@ -36,9 +35,9 @@ public class Attacks : MonoBehaviour
         timer.SetTimer(attackSpeed);
 
 
-        switch (charName)
+        switch (stats.charName)
         {
-            case "TempChar":
+            case Stats.CharacterName.TempChar:
                 SwordAttack();
                 break;
         }
@@ -51,17 +50,17 @@ public class Attacks : MonoBehaviour
 
     private void SetStats()
     {
-        attackSpeed = charWepStats[charName][0];
-        damage = charWepStats[charName][1];
-        projectileSpeed = charWepStats[charName][2];
-        projectileDuration = charWepStats[charName][3];
-        projectileArea = charWepStats[charName][4];
+        attackSpeed = charWepStats[stats.charName][0];
+        damage = charWepStats[stats.charName][1];
+        projectileSpeed = charWepStats[stats.charName][2];
+        projectileDuration = charWepStats[stats.charName][3];
+        projectileArea = charWepStats[stats.charName][4];
     }
 
     public void InstantiateDictionary()
     {
         //AttackSpeed, Damage, projectileSpeed, projectileDuration, projectileArea
-        charWepStats.Add("TempChar", new List<float> { 5f, 10f, 3f, 1f, 1f });
+        charWepStats.Add(Stats.CharacterName.TempChar, new List<float> { 5f, 10f, 3f, 1f, 1f });
 
         SetStats();
     }

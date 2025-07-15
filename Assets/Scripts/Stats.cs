@@ -3,18 +3,26 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    public string charName;
+    
     public float hp;
     public float speed;
 
-    Dictionary<string, List<float>> charStats = new();
+    public enum CharacterName 
+    { 
+        TempChar,
+        FillerChar
+    }
+    public CharacterName charName;
+
+
+    Dictionary<CharacterName, List<float>> charStats = new();
 
     private void Start()
     {
         InstantiateDict();
     }
 
-    private void SetStats(string charName)
+    private void SetStats(CharacterName charName)
     {
         hp = charStats[charName][0];
         speed = charStats[charName][1];
@@ -23,7 +31,7 @@ public class Stats : MonoBehaviour
     private void InstantiateDict()
     {
         //hp, speed
-        charStats.Add("TempChar", new List<float> { 100, 2.5f });
+        charStats.Add(CharacterName.TempChar, new List<float> { 100, 2.5f });
 
         SetStats(charName);
     }
