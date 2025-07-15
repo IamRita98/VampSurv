@@ -22,7 +22,7 @@ public class Attacks : MonoBehaviour
         stats = parentChar.GetComponent<Stats>();
         charName = stats.charName;
 
-        InstantiateDictionary(charName);
+        InstantiateDictionary();
 
         timer = GetComponent<Timer>();
         timer.SetTimer(attackSpeed);
@@ -56,7 +56,7 @@ public class Attacks : MonoBehaviour
         projectileDuration = charWepStats[charName][3];
     }
 
-    public void InstantiateDictionary(string charName)
+    public void InstantiateDictionary()
     {
         //AttackSpeed, Damage, projectileSpeed, projectileDuration
         charWepStats.Add("TempChar", new List<float> { 5f, 10f, 3f, 1f });
