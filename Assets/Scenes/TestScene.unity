@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 231886534}
   - component: {fileID: 231886536}
   - component: {fileID: 231886538}
+  - component: {fileID: 231886539}
   - component: {fileID: 231886535}
   - component: {fileID: 231886537}
   m_Layer: 0
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a053a39398cd0f42a341211051aa95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 5
   speed: 5
 --- !u!70 &231886537
 CapsuleCollider2D:
@@ -259,6 +260,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c7a1e0c2935834da804611cf9e0d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &231886539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231886530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2cb1e5a51616f8418c27bc8b19c3baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLeft: 0
+  timerComplete: 0
 --- !u!1 &422757239
 GameObject:
   m_ObjectHideFlags: 0

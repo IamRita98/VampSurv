@@ -3,6 +3,7 @@ using UnityEngine;
 public class SpriteFlipper : MonoBehaviour
 {
     Vector3 target;
+    bool isFlipped;
     GetMousePos mousePos;
     SpriteRenderer sRend;
     string attachedGO;
@@ -20,13 +21,23 @@ public class SpriteFlipper : MonoBehaviour
 
     private void FlipSprite()
     {
-        if(attachedGO == "player")
+        if(attachedGO == "Player")
         {
             target = mousePos.mousePos;
         }
 
-        if (transform.position.x > target.x) sRend.flipX = true;
-        else sRend.flipX = false; 
+        if (!isFlipped && transform.position.x > target.x)
+        {
+            sRend.flipX = true;
+            isFlipped = true;
+            Debug.Log("Flipped");
+        }
+        else if(isFlipped && transform.position.x < target.x)
+        {
+            sRend.flipX = false;
+            isFlipped = false;
+            Debug.Log("Unflipped");
+        }
     }
 
     private void CheckAttachedGO()
