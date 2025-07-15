@@ -20,7 +20,15 @@ public class SwordWaveBehaviour : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        targetSize = new Vector3(transform.localScale.x * .75f, transform.localScale.y * 2, 1);
+
+
+        transform.localScale = transform.localScale * atks.projectileArea;
+        targetSize = new Vector3
+            ((transform.localScale.x * .3f) * atks.projectileArea,
+            (transform.localScale.y * 2) * atks.projectileArea,
+            1);
+
+
         timer.SetTimer(atks.projectileDuration);
     }
 

@@ -12,6 +12,7 @@ public class Attacks : MonoBehaviour
     public float damage;
     public float projectileSpeed;
     public float projectileDuration;
+    public float projectileArea;
 
     public string charName;
     Stats stats;
@@ -54,12 +55,13 @@ public class Attacks : MonoBehaviour
         damage = charWepStats[charName][1];
         projectileSpeed = charWepStats[charName][2];
         projectileDuration = charWepStats[charName][3];
+        projectileArea = charWepStats[charName][4];
     }
 
     public void InstantiateDictionary()
     {
-        //AttackSpeed, Damage, projectileSpeed, projectileDuration
-        charWepStats.Add("TempChar", new List<float> { 5f, 10f, 3f, 1f });
+        //AttackSpeed, Damage, projectileSpeed, projectileDuration, projectileArea
+        charWepStats.Add("TempChar", new List<float> { 5f, 10f, 3f, 1f, 1f });
 
         SetStats();
     }
