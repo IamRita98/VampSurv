@@ -1,39 +1,40 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Timer))]
 public class SwordWaveBehaviour : MonoBehaviour
 {
     Timer timer;
-    GetMousePos mousePos;
-
+    GetMousePos getMousePos;
     Attacks atks;
 
-    public Vector3 targetSize;
+    Vector3 targetSize;
+
+    private void Awake()
+    {
+        atks = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Attacks>();
+        timer = GetComponent<Timer>();
+        getMousePos = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GetMousePos>();
+    }
 
     private void Start()
     {
-        atks = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Attacks>();
+        //Set starting rotation to look at mousePos
+        transform.rotation = getMousePos.LookAtMouse(transform.position);
 
-        timer = GetComponent<Timer>();
-        mousePos = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GetMousePos>();
-
-        Vector2 dir = mousePos.mousePos - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-
-
+        //Scale size of Spawned Sword Wave & it's target size w/ ProjArea
         transform.localScale = transform.localScale * atks.projectileArea;
         targetSize = new Vector3
             ((transform.localScale.x * .3f) * atks.projectileArea,
             (transform.localScale.y * 2) * atks.projectileArea,
             1);
 
-
+        //Set timer to destroy self based on proj duration
         timer.SetTimer(atks.projectileDuration);
     }
 
     private void Update()
     {
+        //increase length over lifespan
         transform.localScale = Vector3.Lerp(transform.localScale, targetSize, atks.projectileDuration * Time.deltaTime);
 
         if (!timer.timerComplete) return;
