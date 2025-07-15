@@ -20,7 +20,7 @@ public class SwordWaveBehaviour : MonoBehaviour
     private void Start()
     {
         //Set starting rotation to look at mousePos
-        this.gameObject.transform.rotation = lookAtMousePos.LookAtMouse(transform.position);
+        transform.rotation = lookAtMousePos.LookAtMouse(transform.position);
 
         //Scale size of Spawned Sword Wave & it's target size w/ ProjArea
         transform.localScale = transform.localScale * atks.projectileArea;
