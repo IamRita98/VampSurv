@@ -13,7 +13,6 @@ public class Timer : MonoBehaviour
         if (timeLeft <= 0)
         {
             timerComplete = true;
-            Debug.Log("TimedOut");
         }
     }
 

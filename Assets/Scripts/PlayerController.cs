@@ -1,19 +1,19 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Stats))]
+[RequireComponent(typeof(CharacterStats))]
 [RequireComponent(typeof(SpriteFlipper))]
 public class PlayerController : MonoBehaviour
 {
     private Vector2 input;
     private Rigidbody2D rb;
 
-    private Stats stats;
+    private CharacterStats cStats;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        stats = GetComponent<Stats>();
+        cStats = GetComponent<CharacterStats>();
     }
 
     private void Update()
@@ -25,6 +25,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = input * stats.speed;
+        rb.linearVelocity = input * cStats.speed;
     }
 }

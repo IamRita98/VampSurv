@@ -1,11 +1,10 @@
 using UnityEngine;
 
-[RequireComponent(typeof(LookAtMousePos))]
+[RequireComponent(typeof(Timer))]
 public class SwordWaveBehaviour : MonoBehaviour
 {
     Timer timer;
-    LookAtMousePos lookAtMousePos;
-
+    GetMousePos getMousePos;
     Attacks atks;
 
     Vector3 targetSize;
@@ -14,13 +13,13 @@ public class SwordWaveBehaviour : MonoBehaviour
     {
         atks = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Attacks>();
         timer = GetComponent<Timer>();
-        lookAtMousePos = GetComponent<LookAtMousePos>();
+        getMousePos = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GetMousePos>();
     }
 
     private void Start()
     {
         //Set starting rotation to look at mousePos
-        transform.rotation = lookAtMousePos.LookAtMouse(transform.position);
+        transform.rotation = getMousePos.LookAtMouse(transform.position);
 
         //Scale size of Spawned Sword Wave & it's target size w/ ProjArea
         transform.localScale = transform.localScale * atks.projectileArea;

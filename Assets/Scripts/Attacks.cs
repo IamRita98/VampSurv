@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Attacks : MonoBehaviour
 {
     public GameObject parentChar;
@@ -14,13 +13,13 @@ public class Attacks : MonoBehaviour
     public float projectileDuration;
     public float projectileArea;
 
-    Stats stats;
+    CharacterStats cStats;
 
 
-    Dictionary<Stats.CharacterName, List<float>> charWepStats = new();
+    Dictionary<CharacterStats.CharacterName, List<float>> charWepStats = new();
     void Start()
     {
-        stats = parentChar.GetComponent<Stats>();
+        cStats = parentChar.GetComponent<CharacterStats>();
 
         InstantiateDictionary();
 
@@ -35,9 +34,9 @@ public class Attacks : MonoBehaviour
         timer.SetTimer(attackSpeed);
 
 
-        switch (stats.charName)
+        switch (cStats.charName)
         {
-            case Stats.CharacterName.TempChar:
+            case CharacterStats.CharacterName.TempChar:
                 SwordAttack();
                 break;
         }
@@ -50,17 +49,17 @@ public class Attacks : MonoBehaviour
 
     private void SetStats()
     {
-        attackSpeed = charWepStats[stats.charName][0];
-        damage = charWepStats[stats.charName][1];
-        projectileSpeed = charWepStats[stats.charName][2];
-        projectileDuration = charWepStats[stats.charName][3];
-        projectileArea = charWepStats[stats.charName][4];
+        attackSpeed = charWepStats[cStats.charName][0];
+        damage = charWepStats[cStats.charName][1];
+        projectileSpeed = charWepStats[cStats.charName][2];
+        projectileDuration = charWepStats[cStats.charName][3];
+        projectileArea = charWepStats[cStats.charName][4];
     }
 
     public void InstantiateDictionary()
     {
         //AttackSpeed, Damage, projectileSpeed, projectileDuration, projectileArea
-        charWepStats.Add(Stats.CharacterName.TempChar, new List<float> { 5f, 10f, 3f, 1f, 1f });
+        charWepStats.Add(CharacterStats.CharacterName.TempChar, new List<float> { 5f, 10f, 3f, 1f, 1f });
 
         SetStats();
     }
