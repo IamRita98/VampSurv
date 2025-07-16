@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StatConstructor : MonoBehaviour
+public class StatConstructor
 {
     //Character stats
     public float hp;
