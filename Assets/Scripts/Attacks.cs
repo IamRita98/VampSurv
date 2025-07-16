@@ -6,6 +6,7 @@ public class Attacks : MonoBehaviour
     public GameObject parentChar;
     public GameObject swordWave;
     Timer timer;
+    
 
     public float attackSpeed;
     public float damage;
@@ -51,17 +52,17 @@ public class Attacks : MonoBehaviour
     public void InstantiateDictionary()
     {
         //AttackSpeed, Damage, projectileSpeed, projectileDuration, projectileArea
-        charWepStats.Add(CharacterStats.CharacterName.TempChar, new WeaponStats(5,10,3,1,1));
+        charWepStats.Add(CharacterStats.CharacterName.TempChar, new WeaponStats(atkSpeed: 5,dmg: 10,projSpeed: 3,projDur: 1,projArea: 1));
 
-        SetStats();
+        SetStats(cStats.charName);
     }
 
-    private void SetStats()
+    private void SetStats(CharacterStats.CharacterName charName)
     {
-        attackSpeed = wStats.attackSpeed;
-        damage = wStats.damage;
-        projectileSpeed = wStats.projectileSpeed;
-        projectileDuration = wStats.projectileDuration;
-        projectileArea = wStats.projectileArea;
+        attackSpeed = charWepStats[charName].attackSpeed;
+        damage = charWepStats[charName].damage;
+        projectileSpeed = charWepStats[charName].projectileSpeed;
+        projectileDuration = charWepStats[charName].projectileDuration;
+        projectileArea = charWepStats[charName].projectileArea;
     }
 }
