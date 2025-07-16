@@ -6,6 +6,7 @@ public class Attacks : MonoBehaviour
     public GameObject parentChar;
     public GameObject swordWave;
     Timer timer;
+    
 
     public float attackSpeed;
     public float damage;
@@ -14,12 +15,13 @@ public class Attacks : MonoBehaviour
     public float projectileArea;
 
     CharacterStats cStats;
+    WeaponStats wStats;
 
-
-    Dictionary<CharacterStats.CharacterName, List<float>> charWepStats = new();
+    Dictionary<CharacterStats.CharacterName, WeaponStats> charWepStats = new();
     void Start()
     {
         cStats = parentChar.GetComponent<CharacterStats>();
+        wStats = GetComponent<WeaponStats>();
 
         InstantiateDictionary();
 
@@ -47,20 +49,20 @@ public class Attacks : MonoBehaviour
         GameObject instantiatedAttack = Instantiate(swordWave, transform.parent.position, Quaternion.identity);
     }
 
-    private void SetStats()
-    {
-        attackSpeed = charWepStats[cStats.charName][0];
-        damage = charWepStats[cStats.charName][1];
-        projectileSpeed = charWepStats[cStats.charName][2];
-        projectileDuration = charWepStats[cStats.charName][3];
-        projectileArea = charWepStats[cStats.charName][4];
-    }
-
     public void InstantiateDictionary()
     {
         //AttackSpeed, Damage, projectileSpeed, projectileDuration, projectileArea
-        charWepStats.Add(CharacterStats.CharacterName.TempChar, new List<float> { 5f, 10f, 3f, 1f, 1f });
+        charWepStats.Add(CharacterStats.CharacterName.TempChar, new WeaponStats(atkSpeed: 5,dmg: 10,projSpeed: 3,projDur: 1,projArea: 1));
 
-        SetStats();
+        SetStats(cStats.charName);
+    }
+
+    private void SetStats(CharacterStats.CharacterName charName)
+    {
+        attackSpeed = charWepStats[charName].attackSpeed;
+        damage = charWepStats[charName].damage;
+        projectileSpeed = charWepStats[charName].projectileSpeed;
+        projectileDuration = charWepStats[charName].projectileDuration;
+        projectileArea = charWepStats[charName].projectileArea;
     }
 }
