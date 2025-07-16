@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GetPlayerPos : MonoBehaviour
 {
-    Vector2 playerPos;
+    public Vector2 playerPos;
 
     private void Update()
     {

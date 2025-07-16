@@ -53,7 +53,7 @@ public class CharacterStats : MonoBehaviour
 
         //Enemies
         charStats.Add(CharacterName.Zombie, new StatConstructor
-            (health: 25, spd: 2.5f, atkSpeed: 1, dmg: 5, projSpeed: 1, projDur: 1, projArea: 1));
+            (health: 25, spd: 2f, atkSpeed: 1, dmg: 5, projSpeed: 1, projDur: 1, projArea: 1));
 
         SetStats(charName);
     }
