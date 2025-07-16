@@ -14,12 +14,13 @@ public class Attacks : MonoBehaviour
     public float projectileArea;
 
     CharacterStats cStats;
+    WeaponStats wStats;
 
-
-    Dictionary<CharacterStats.CharacterName, List<float>> charWepStats = new();
+    Dictionary<CharacterStats.CharacterName, WeaponStats> charWepStats = new();
     void Start()
     {
         cStats = parentChar.GetComponent<CharacterStats>();
+        wStats = GetComponent<WeaponStats>();
 
         InstantiateDictionary();
 
@@ -47,20 +48,20 @@ public class Attacks : MonoBehaviour
         GameObject instantiatedAttack = Instantiate(swordWave, transform.parent.position, Quaternion.identity);
     }
 
-    private void SetStats()
-    {
-        attackSpeed = charWepStats[cStats.charName][0];
-        damage = charWepStats[cStats.charName][1];
-        projectileSpeed = charWepStats[cStats.charName][2];
-        projectileDuration = charWepStats[cStats.charName][3];
-        projectileArea = charWepStats[cStats.charName][4];
-    }
-
     public void InstantiateDictionary()
     {
         //AttackSpeed, Damage, projectileSpeed, projectileDuration, projectileArea
-        charWepStats.Add(CharacterStats.CharacterName.TempChar, new List<float> { 5f, 10f, 3f, 1f, 1f });
+        charWepStats.Add(CharacterStats.CharacterName.TempChar, new WeaponStats(5,10,3,1,1));
 
         SetStats();
+    }
+
+    private void SetStats()
+    {
+        attackSpeed = wStats.attackSpeed;
+        damage = wStats.damage;
+        projectileSpeed = wStats.projectileSpeed;
+        projectileDuration = wStats.projectileDuration;
+        projectileArea = wStats.projectileArea;
     }
 }

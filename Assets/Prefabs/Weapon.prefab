@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2195414095761823260}
   - component: {fileID: 6786941236124891223}
   - component: {fileID: -195104901580909270}
+  - component: {fileID: -638367907924406797}
   - component: {fileID: -3275466114930630677}
   m_Layer: 0
   m_Name: Weapon
@@ -108,7 +109,19 @@ MonoBehaviour:
   projectileSpeed: 0
   projectileDuration: 0
   projectileArea: 0
-  charName: 
+--- !u!114 &-638367907924406797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3007061679040265506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d5ceacdf5c3d643a5cc3da6287840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wepType: 0
 --- !u!114 &-3275466114930630677
 MonoBehaviour:
   m_ObjectHideFlags: 0
