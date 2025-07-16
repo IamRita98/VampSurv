@@ -5,13 +5,12 @@ public class SwordWaveBehaviour : MonoBehaviour
 {
     Timer timer;
     GetMousePos getMousePos;
-    Attacks atks;
-
+    CharacterStats cStats;
     Vector3 targetSize;
 
     private void Awake()
     {
-        atks = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Attacks>();
+        cStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
         timer = GetComponent<Timer>();
         getMousePos = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GetMousePos>();
     }
@@ -22,20 +21,20 @@ public class SwordWaveBehaviour : MonoBehaviour
         transform.rotation = getMousePos.LookAtMouse(transform.position);
 
         //Scale size of Spawned Sword Wave & it's target size w/ ProjArea
-        transform.localScale = transform.localScale * atks.projectileArea;
+        transform.localScale = transform.localScale * cStats.projectileArea;
         targetSize = new Vector3
-            ((transform.localScale.x * .3f) * atks.projectileArea,
-            (transform.localScale.y * 2) * atks.projectileArea,
+            ((transform.localScale.x * .3f) * cStats.projectileArea,
+            (transform.localScale.y * 2) * cStats.projectileArea,
             1);
 
         //Set timer to destroy self based on proj duration
-        timer.SetTimer(atks.projectileDuration);
+        timer.SetTimer(cStats.projectileDuration);
     }
 
     private void Update()
     {
         //increase length over lifespan
-        transform.localScale = Vector3.Lerp(transform.localScale, targetSize, atks.projectileDuration * Time.deltaTime);
+        transform.localScale = Vector3.Lerp(transform.localScale, targetSize, cStats.projectileDuration * Time.deltaTime);
 
         if (!timer.timerComplete) return;
         Destroy(this.gameObject);
@@ -43,6 +42,6 @@ public class SwordWaveBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(Vector2.right * atks.projectileSpeed * Time.deltaTime);
+        transform.Translate(Vector2.right * cStats.projectileSpeed * Time.deltaTime);
     }
 }
