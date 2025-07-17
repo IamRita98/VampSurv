@@ -57,4 +57,9 @@ public class CharacterStats : MonoBehaviour
 
         SetStats(charName);
     }
+
+    public void ChangeHP(float dmgTaken)
+    {
+        hp -= dmgTaken;
+    }
 }
