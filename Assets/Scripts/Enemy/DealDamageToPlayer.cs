@@ -6,16 +6,20 @@ public class DealDamageToPlayer : MonoBehaviour
     CharacterStats cStats;
     public bool destroyEnemyOnContact;
 
-    public static event System.Action<GameObject> onPlayerDamaged;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static event System.Action<GameObject, float> onPlayerDamaged;
+
     void Start()
     {
-        
+        cStats = GetComponent<CharacterStats>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (!collision.gameObject.CompareTag("Player")) return;
+
+        float dmgToDeal = cStats.damage;
+        collision.gameObject.GetComponent<CharacterStats>().ChangeHP(dmgToDeal);
+
+        onPlayerDamaged?.Invoke(collision.gameObject, dmgToDeal);
     }
 }

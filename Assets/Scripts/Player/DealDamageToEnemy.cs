@@ -17,6 +17,7 @@ public class DealDamageToEnemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Enemy")) return;
+
         float dmgToDeal = wStats.damage;
         collision.GetComponent<CharacterStats>().ChangeHP(dmgToDeal); //deal dmg
 
