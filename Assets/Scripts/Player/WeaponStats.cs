@@ -33,7 +33,7 @@ public class WeaponStats : MonoBehaviour
     private void InstanDict()
     {
         wepStats.Add(CharacterName.TempChar, new WeaponStatConstructor
-            (atkSpeed: 5, dmg: 10, projSpeed: 3, projDur: 1, projArea: 1));
+            (atkSpeed: 4, dmg: 10, projSpeed: 3, projDur: 1, projArea: 1));
 
         SetStats(cStats.charName);
     }
