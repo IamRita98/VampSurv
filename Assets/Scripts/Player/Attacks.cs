@@ -8,20 +8,22 @@ public class Attacks : MonoBehaviour
     Timer timer;
 
     CharacterStats cStats;
+    WeaponStats wStats;
 
     void Start()
     {
+        wStats = parentChar.GetComponent<WeaponStats>();
         cStats = parentChar.GetComponent<CharacterStats>();
         timer = GetComponent<Timer>();
 
-        timer.SetTimer(cStats.attackSpeed);
+        timer.SetTimer(wStats.attackSpeed);
     }
 
     private void Update()
     {
         if (!timer.timerComplete) return;
         timer.timerComplete = false;
-        timer.SetTimer(cStats.attackSpeed);
+        timer.SetTimer(wStats.attackSpeed);
 
 
         switch (cStats.charName)
