@@ -5,16 +5,15 @@ public class EnemySpawner : MonoBehaviour
 {
     GameObject gManageGO;
     GetScreenSize getScreenSize;
-    GetPlayerPos getPlayerPos;
+
     public GameObject enemy;
+
     public float spawnRadius = 15;
-    public float buffer = 4f;
+    public float buffer = 2f;
     public int enemiesToSpawn = 20;
 
     float minXSpawnRange;
     float minYSpawnRange;
-    float maxXSpawnRange;
-    float maxYSpawnRange;
 
     public bool spawnEnemies = false;
 
@@ -27,9 +26,9 @@ public class EnemySpawner : MonoBehaviour
     {
         gManageGO = GameObject.FindGameObjectWithTag("GameManager");
         getScreenSize = gManageGO.GetComponent<GetScreenSize>();
-        getPlayerPos = gManageGO.GetComponent<GetPlayerPos>();
 
-        GetSpawnRange();
+        minXSpawnRange = (getScreenSize.screenWidth / 2) + buffer;
+        minYSpawnRange = (getScreenSize.screenHeight / 2) + buffer;
     }
 
     private void Update()
@@ -47,8 +46,8 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < enemiesToSpawn; i++)
         {
             int spawnQuad = Random.Range(0, 4); //0 is top, 1 right, 2 down, 3 left
-            randomX = Random.Range(-maxXSpawnRange, maxXSpawnRange);
-            randomY = Random.Range(-maxYSpawnRange, maxYSpawnRange);
+            randomX = Random.Range(-spawnRadius, spawnRadius);
+            randomY = Random.Range(-spawnRadius, spawnRadius);
 
             switch (spawnQuad)
             {
@@ -65,18 +64,8 @@ public class EnemySpawner : MonoBehaviour
                     spawnLocation = new Vector2(-minXSpawnRange, randomY);
                     break;
             }
-
             Instantiate(enemy, new Vector2(transform.position.x, transform.position.y) + spawnLocation, Quaternion.identity);
         }
         spawnEnemies = false;
-    }
-
-    void GetSpawnRange()
-    {
-        minXSpawnRange = (getScreenSize.screenWidth / 2) + buffer;
-        maxXSpawnRange = spawnRadius;
-
-        minYSpawnRange = (getScreenSize.screenHeight / 2) + buffer;
-        maxYSpawnRange = spawnRadius;
     }
 }
