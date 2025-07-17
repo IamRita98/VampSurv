@@ -449,6 +449,7 @@ MonoBehaviour:
   spawnRadius: 15
   buffer: 1.5
   enemiesToSpawn: 20
+  spawnEnemies: 0
 --- !u!1001 &307014938336155310
 PrefabInstance:
   m_ObjectHideFlags: 0
