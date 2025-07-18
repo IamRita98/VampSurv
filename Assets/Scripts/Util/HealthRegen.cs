@@ -1,14 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class HealthRegen : MonoBehaviour
 {
     CharacterStats cStats;
     float timer;
-    float regenDuration;
-    bool setTimer;
-    float regenaration;
-    float delayOnRegen;
-    float regenFrequency;
+    float regenerationDuration;
 
     private void Start()
     {
@@ -17,33 +14,38 @@ public class HealthRegen : MonoBehaviour
 
     private void Update()
     {
-        if (setTimer)
-        {
-            timer += Time.deltaTime;
-        }
-        if (setTimer && timer <= regenDuration)
-        {
-            InvokeRepeating("RegenHealth", delayOnRegen, 1 / regenFrequency);
-        }
-    }
+        timer += Time.deltaTime;
+    } 
 
-    public void HPRegenCall(bool isTimed, float timerLength, float regenStartDelay, float regenRate, float regenAmount)
+    public void TimedRegen(float duration, float regenAmount)
     {
-        setTimer = isTimed;
         timer = 0;
-        regenaration = regenAmount;
-        regenDuration = timerLength;
-        delayOnRegen = regenStartDelay;
-        regenFrequency = regenRate;
+        regenerationDuration = duration;
+        StartCoroutine(TimedHealthRegen(regenAmount));
+    }
 
-        if (!isTimed)
+    public void ConstantRegen(float regenAmount)
+    {
+        StartCoroutine(ConstantHealthRegen(regenAmount));
+    }
+
+    IEnumerator ConstantHealthRegen(float regenAmount)
+    {
+        while (true)
         {
-            InvokeRepeating("RegenHealth", regenStartDelay, 1 / regenRate);
+            cStats.ChangeHP(-regenAmount);
         }
     }
 
-    public void RegenHealth()
+    IEnumerator TimedHealthRegen(float regenAmount)
     {
-        cStats.ChangeHP(-regenaration);
+        if(timer >= regenerationDuration)
+        {
+            yield return null;
+        }
+        while(timer <= regenerationDuration)
+        {
+            cStats.ChangeHP(-regenAmount);
+        }
     }
 }

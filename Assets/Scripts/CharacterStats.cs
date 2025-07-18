@@ -4,6 +4,7 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     public float hp;
+    public float maxHP;
     public float speed;
     public float abilityCooldown;
 
@@ -33,7 +34,7 @@ public class CharacterStats : MonoBehaviour
 
     private void SetStats(CharacterName charName)
     {
-        hp = charStats[charName].hp;
+        maxHP = charStats[charName].hp;
         speed = charStats[charName].speed;
         abilityCooldown = charStats[charName].abilityCooldown;
 
@@ -66,7 +67,7 @@ public class CharacterStats : MonoBehaviour
 
     public void ChangeHP(float dmgTaken)
     {
-        hp -= dmgTaken;
+        hp -= Mathf.Clamp(dmgTaken, 0, maxHP);
         print(hp);
     }
 }
