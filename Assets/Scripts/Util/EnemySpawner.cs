@@ -5,12 +5,11 @@ public class EnemySpawner : MonoBehaviour
 {
     GameObject gManageGO;
     GetScreenSize getScreenSize;
+    GameObject enemyHolder;
 
-    public GameObject enemy;
 
     public float spawnRadius = 15;
     public float buffer = 2f;
-    public int enemiesToSpawn = 20;
 
     float minXSpawnRange;
     float minYSpawnRange;
@@ -26,25 +25,28 @@ public class EnemySpawner : MonoBehaviour
     {
         gManageGO = GameObject.FindGameObjectWithTag("GameManager");
         getScreenSize = gManageGO.GetComponent<GetScreenSize>();
+        enemyHolder = GameObject.FindGameObjectWithTag("EnemyHolder");
 
         minXSpawnRange = (getScreenSize.screenWidth / 2) + buffer;
         minYSpawnRange = (getScreenSize.screenHeight / 2) + buffer;
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        //probably going to set up a signal in a WaveManagement script to call this
-        if (spawnEnemies)
-        {
-            SpawnEnemies();
-        }
+        EnemyWaveManager.onWaveSpawned += SpawnEnemies;
     }
 
-    void SpawnEnemies()
+    private void OnDisable()
     {
-        
+        EnemyWaveManager.onWaveSpawned -= SpawnEnemies;
+    }
+
+    void SpawnEnemies(List<GameObject> spawnTable, int enemiesToSpawn)
+    {
         for (int i = 0; i < enemiesToSpawn; i++)
         {
+            GameObject enemyToSpawn = spawnTable[0];
+
             int spawnQuad = Random.Range(0, 4); //0 is top, 1 right, 2 down, 3 left
             randomX = Random.Range(-spawnRadius, spawnRadius);
             randomY = Random.Range(-spawnRadius, spawnRadius);
@@ -64,8 +66,9 @@ public class EnemySpawner : MonoBehaviour
                     spawnLocation = new Vector2(-minXSpawnRange, randomY);
                     break;
             }
-            Instantiate(enemy, new Vector2(transform.position.x, transform.position.y) + spawnLocation, Quaternion.identity);
+            Instantiate(enemyToSpawn, new Vector2(transform.position.x, transform.position.y) + spawnLocation, Quaternion.identity, enemyHolder.transform);
+            spawnTable.RemoveAt(0);
+            spawnTable.Add(enemyToSpawn);
         }
-        spawnEnemies = false;
     }
 }

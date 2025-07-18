@@ -17,7 +17,8 @@ public class CharacterStats : MonoBehaviour
         TempChar,
         FillerChar,
 
-        Zombie
+        Zombie,
+        TankyZombie
     }
     public CharacterName charName;
 
@@ -54,6 +55,9 @@ public class CharacterStats : MonoBehaviour
         //Enemies
         charStats.Add(CharacterName.Zombie, new StatConstructor
             (health: 25, spd: 2f, atkSpeed: 1, dmg: 5, projSpeed: 1, projDur: 1, projArea: 1));
+        charStats.Add(CharacterName.TankyZombie, new StatConstructor
+    (health: 55, spd: 1.5f, atkSpeed: 1, dmg: 10, projSpeed: 1, projDur: 1, projArea: 1));
+
 
         SetStats(charName);
     }
