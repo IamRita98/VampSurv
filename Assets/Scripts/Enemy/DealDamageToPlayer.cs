@@ -19,6 +19,7 @@ public class DealDamageToPlayer : MonoBehaviour
 
         float dmgToDeal = cStats.intensity;
         collision.gameObject.GetComponent<CharacterStats>().ChangeHP(dmgToDeal);
+        collision.gameObject.GetComponentInChildren<FlashSpriteOnDamageTaken>().FlashPlayerSprite();
 
         onPlayerDamaged?.Invoke(collision.gameObject, dmgToDeal);
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class DealDamageToEnemy : MonoBehaviour
 {
     public bool destroyProjOnContact;
-
     public float damageToDeal;
 
     public static event System.Action<GameObject, float> onEnemyDamaged;
@@ -16,6 +15,7 @@ public class DealDamageToEnemy : MonoBehaviour
         if (!collision.CompareTag("Enemy")) return;
 
         collision.GetComponent<CharacterStats>().ChangeHP(damageToDeal); //deal dmg
+        collision.GetComponent<FlashSpriteOnDamageTaken>().FlashEnemySprite(); //Flash sprite white
 
         onEnemyDamaged?.Invoke(collision.gameObject, damageToDeal); //Send signal incase we want this anywhere else
 

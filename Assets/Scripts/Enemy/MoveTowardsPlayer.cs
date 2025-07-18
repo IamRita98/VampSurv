@@ -18,6 +18,8 @@ public class MoveTowardsPlayer : MonoBehaviour
 
     private void Update()
     {
+        rb.linearVelocity = Vector2.zero;
+
         currentPos = transform.position;
         playerPos = getPlayerPos.playerPos;
         direction = playerPos - currentPos;
