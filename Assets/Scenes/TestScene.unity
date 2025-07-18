@@ -508,13 +508,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5699893106843934805, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
-      propertyPath: tempCharWhirlwind
+      propertyPath: tempCharRegenAndDamageBuff
       value: 
-      objectReference: {fileID: 7713224815798353239, guid: 76a2ca6e22529b64d8751b33ad000664, type: 3}
-    - target: {fileID: 6971696946607418505, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1836336134419443166, guid: c8d9f286e99b92a49bc398326bd877e4, type: 3}
     - target: {fileID: 7315459754386790506, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
       propertyPath: m_Name
       value: TestPlayer

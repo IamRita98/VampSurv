@@ -17,7 +17,7 @@ public class DealDamageToPlayer : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player")) return;
 
-        float dmgToDeal = cStats.damage;
+        float dmgToDeal = cStats.intensity;
         collision.gameObject.GetComponent<CharacterStats>().ChangeHP(dmgToDeal);
 
         onPlayerDamaged?.Invoke(collision.gameObject, dmgToDeal);

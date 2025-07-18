@@ -12,7 +12,7 @@ public class DestroyOnDeath : MonoBehaviour
 
     private void Update()
     {
-        if(cStats.hp <= 0)
+        if(cStats.currentHP <= 0)
         {
             Destroy(this.gameObject);
         }

@@ -22,8 +22,8 @@ public class WhirlwindBehaviour : MonoBehaviour
         cStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
         dealDamageToEnemy = GetComponent<DealDamageToEnemy>();
 
-        damage = baseDamage * cStats.damage;
-        duration = baseDuration * cStats.projectileDuration;
+        damage = baseDamage * cStats.intensity;
+        duration = baseDuration * cStats.duration;
         area = baseArea * cStats.projectileArea;
 
         dealDamageToEnemy.damageToDeal = damage;
