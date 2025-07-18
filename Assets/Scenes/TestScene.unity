@@ -299,7 +299,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1514910525}
-  - component: {fileID: 1514910527}
   - component: {fileID: 1514910526}
   m_Layer: 0
   m_Name: RegenAndDamageBuff
@@ -337,18 +336,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLeft: 0
   timerComplete: 0
---- !u!114 &1514910527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514910524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcd3d720e90228498dce8919e09415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1636464049
 GameObject:
   m_ObjectHideFlags: 0

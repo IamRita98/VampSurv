@@ -14,8 +14,6 @@ public class EnemySpawner : MonoBehaviour
     float minXSpawnRange;
     float minYSpawnRange;
 
-    public bool spawnEnemies = false;
-
     float randomX;
     float randomY;
     Vector2 spawnLocation;

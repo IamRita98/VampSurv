@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public float hp;
+    public float currentHP;
     public float maxHP;
+    public float hpRegen;
     public float speed;
     public float abilityCooldown;
 
@@ -30,6 +31,7 @@ public class CharacterStats : MonoBehaviour
     private void Start()
     {
         InstantiateDict();
+        currentHP = maxHP;
     }
 
     private void SetStats(CharacterName charName)
@@ -37,6 +39,7 @@ public class CharacterStats : MonoBehaviour
         maxHP = charStats[charName].hp;
         speed = charStats[charName].speed;
         abilityCooldown = charStats[charName].abilityCooldown;
+        hpRegen = charStats[charName].hpRegen;
 
         attackSpeed = charStats[charName].attackSpeed;
         damage = charStats[charName].damage;
@@ -51,15 +54,19 @@ public class CharacterStats : MonoBehaviour
         //Then when they get a buff thats +20% attack speed we can apply it as * 1.2 to this stat
         //PC's
         charStats.Add(CharacterName.TempChar, new StatConstructor
-            (health: 100, spd: 3, abilityCD: 1, atkSpeed: 1, dmg: 1, projSpeed: 1, projDur: 1, projArea: 1));
+            (health: 100, healthRegen: .2f, spd: 3, 
+            abilityCD: 1, atkSpeed: 1, dmg: 1, projSpeed: 1, projDur: 1, projArea: 1));
 
 
 
         //Enemies
         charStats.Add(CharacterName.Zombie, new StatConstructor
-            (health: 25, spd: 2f, abilityCD: 1, atkSpeed: 1, dmg: 5, projSpeed: 1, projDur: 1, projArea: 1));
+            (health: 25, healthRegen: 0, spd: 2f, 
+            abilityCD: 1, atkSpeed: 1, dmg: 5, projSpeed: 1, projDur: 1, projArea: 1));
+
         charStats.Add(CharacterName.TankyZombie, new StatConstructor
-            (health: 55, spd: 1.5f, abilityCD: 1, atkSpeed: 1, dmg: 10, projSpeed: 1, projDur: 1, projArea: 1));
+            (health: 55, healthRegen: 0, spd: 1.5f, 
+            abilityCD: 1, atkSpeed: 1, dmg: 10, projSpeed: 1, projDur: 1, projArea: 1));
 
 
         SetStats(charName);
@@ -67,7 +74,10 @@ public class CharacterStats : MonoBehaviour
 
     public void ChangeHP(float dmgTaken)
     {
-        hp -= Mathf.Clamp(dmgTaken, 0, maxHP);
-        print(hp);
+        if (dmgTaken < 0 && currentHP >= maxHP) return; //If dmg taken is healing and our current HP is capped, return
+        
+        currentHP -= dmgTaken;
+        if (currentHP > maxHP) currentHP = maxHP;
+        print(currentHP + "/" + maxHP);
     }
 }

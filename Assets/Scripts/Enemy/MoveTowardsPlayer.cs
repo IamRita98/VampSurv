@@ -20,7 +20,10 @@ public class MoveTowardsPlayer : MonoBehaviour
     {
         currentPos = transform.position;
         playerPos = getPlayerPos.playerPos;
+        direction = playerPos - currentPos;
+        direction.Normalize();
+        transform.Translate(direction * (cStats.speed * Time.deltaTime));
 
-        transform.position = Vector2.MoveTowards(currentPos, playerPos, cStats.speed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(currentPos, playerPos, cStats.speed * Time.deltaTime);
     }
 }

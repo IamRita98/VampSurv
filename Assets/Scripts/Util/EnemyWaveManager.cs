@@ -34,7 +34,7 @@ public class EnemyWaveManager : MonoBehaviour
 
     void SetSpawnTable()
     {
-        //More Complex behaviour to come. This is filler.
+        //More Complex behaviour to come. This is filler. Prob base it off of a global timer that's counting up for game duration
         spawnTable.Add(enemy);
         spawnTable.Add(enemy);
         spawnTable.Add(enemy);

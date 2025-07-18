@@ -4,48 +4,52 @@ using UnityEngine;
 public class HealthRegen : MonoBehaviour
 {
     CharacterStats cStats;
+    public float regenarationAmount;
+    bool isTimed;
     float timer;
-    float regenerationDuration;
+    float baseRegen;
+    bool isHurt;
+
+    public bool wantToRegen = false;
 
     private void Start()
     {
-        cStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
+        cStats = GetComponent<CharacterStats>();
+        baseRegen = cStats.hpRegen;
+        regenarationAmount = cStats.hpRegen;
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-    } 
+        if (cStats.currentHP < cStats.maxHP) isHurt = true;
+        else isHurt = false;
 
-    public void TimedRegen(float duration, float regenAmount)
-    {
-        timer = 0;
-        regenerationDuration = duration;
-        StartCoroutine(TimedHealthRegen(regenAmount));
-    }
-
-    public void ConstantRegen(float regenAmount)
-    {
-        StartCoroutine(ConstantHealthRegen(regenAmount));
-    }
-
-    IEnumerator ConstantHealthRegen(float regenAmount)
-    {
-        while (true)
+        if (isTimed)
         {
-            cStats.ChangeHP(-regenAmount);
+            timer -= Time.deltaTime;
+        }
+        if (isTimed && timer <= 0)
+        {
+            regenarationAmount = baseRegen;
+        }
+
+        if (!isHurt) return;
+
+        if (isHurt)
+        {
+            cStats.ChangeHP(-regenarationAmount * Time.deltaTime);
         }
     }
 
-    IEnumerator TimedHealthRegen(float regenAmount)
+    void IncreaseHealthRegen(float regenAmount, float regenTimer, GameObject whoToRegen)
     {
-        if(timer >= regenerationDuration)
+        if(regenTimer > 0)
         {
-            yield return null;
+            isTimed = true;
+            timer = regenTimer;
         }
-        while(timer <= regenerationDuration)
-        {
-            cStats.ChangeHP(-regenAmount);
-        }
+        
+        cStats = whoToRegen.GetComponent<CharacterStats>();
+        regenarationAmount += regenAmount;
     }
 }

@@ -4,6 +4,7 @@ public class StatConstructor
 {
     //Character stats
     public float hp;
+    public float hpRegen;
     public float speed;
     public float abilityCooldown;
 
@@ -14,9 +15,10 @@ public class StatConstructor
     public float projectileDuration;
     public float projectileArea;
 
-    public StatConstructor(float health, float spd, float abilityCD, float atkSpeed, float dmg, float projSpeed, float projDur, float projArea)
+    public StatConstructor(float health, float healthRegen, float spd, float abilityCD, float atkSpeed, float dmg, float projSpeed, float projDur, float projArea)
     {
         hp = health;
+        hpRegen = healthRegen;
         speed = spd;
         abilityCooldown = abilityCD;
         
