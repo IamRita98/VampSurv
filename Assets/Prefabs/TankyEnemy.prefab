@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3430818472908834355}
   - component: {fileID: 8378345765226271909}
   - component: {fileID: 1106344359765470291}
+  - component: {fileID: 4561964073493392682}
   - component: {fileID: 4171521078920729396}
   - component: {fileID: 661060528992525070}
   m_Layer: 0
@@ -105,12 +106,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a053a39398cd0f42a341211051aa95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  currentHP: 0
+  maxHP: 0
+  hpRegen: 0
+  intensity: 0
   speed: 0
+  abilityCooldown: 0
   attackSpeed: 0
-  damage: 0
   projectileSpeed: 0
-  projectileDuration: 0
+  duration: 0
   projectileArea: 0
   charName: 3
 --- !u!114 &3430818472908834355
@@ -150,6 +154,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4b18cec0a37484a81d9fd3e2b81c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4561964073493392682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8618075588746415337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624b9e42703ef834eb04a3eedbcb3e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &4171521078920729396
 Rigidbody2D:
   serializedVersion: 5
@@ -162,7 +178,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 8
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
