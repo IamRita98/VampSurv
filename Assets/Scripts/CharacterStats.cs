@@ -5,6 +5,7 @@ public class CharacterStats : MonoBehaviour
 {
     public float hp;
     public float speed;
+    public float abilityCooldown;
 
     public float attackSpeed;
     public float damage;
@@ -34,6 +35,7 @@ public class CharacterStats : MonoBehaviour
     {
         hp = charStats[charName].hp;
         speed = charStats[charName].speed;
+        abilityCooldown = charStats[charName].abilityCooldown;
 
         attackSpeed = charStats[charName].attackSpeed;
         damage = charStats[charName].damage;
@@ -48,15 +50,15 @@ public class CharacterStats : MonoBehaviour
         //Then when they get a buff thats +20% attack speed we can apply it as * 1.2 to this stat
         //PC's
         charStats.Add(CharacterName.TempChar, new StatConstructor
-            (health: 100, spd: 3, atkSpeed: 1, dmg: 1, projSpeed: 1, projDur: 1, projArea: 1));
+            (health: 100, spd: 3, abilityCD: 1, atkSpeed: 1, dmg: 1, projSpeed: 1, projDur: 1, projArea: 1));
 
 
 
         //Enemies
         charStats.Add(CharacterName.Zombie, new StatConstructor
-            (health: 25, spd: 2f, atkSpeed: 1, dmg: 5, projSpeed: 1, projDur: 1, projArea: 1));
+            (health: 25, spd: 2f, abilityCD: 1, atkSpeed: 1, dmg: 5, projSpeed: 1, projDur: 1, projArea: 1));
         charStats.Add(CharacterName.TankyZombie, new StatConstructor
-    (health: 55, spd: 1.5f, atkSpeed: 1, dmg: 10, projSpeed: 1, projDur: 1, projArea: 1));
+            (health: 55, spd: 1.5f, abilityCD: 1, atkSpeed: 1, dmg: 10, projSpeed: 1, projDur: 1, projArea: 1));
 
 
         SetStats(charName);

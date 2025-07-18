@@ -6,6 +6,7 @@ public class SwordWaveBehaviour : MonoBehaviour
     Timer timer;
     GetMousePos getMousePos;
     WeaponStats wStats;
+    DealDamageToEnemy dealDamageToEnemy;
     Vector3 targetSize;
     Vector3 baseWepSize;
 
@@ -14,6 +15,9 @@ public class SwordWaveBehaviour : MonoBehaviour
         wStats = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponStats>();
         timer = GetComponent<Timer>();
         getMousePos = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GetMousePos>();
+        dealDamageToEnemy = GetComponent<DealDamageToEnemy>();
+
+        dealDamageToEnemy.damageToDeal = wStats.damage;
     }
 
     private void Start()
