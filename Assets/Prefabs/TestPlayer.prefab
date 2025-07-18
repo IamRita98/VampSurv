@@ -411,7 +411,6 @@ GameObject:
   - component: {fileID: 3266423197532749621}
   - component: {fileID: 5699893106843934805}
   - component: {fileID: 6604925453429425571}
-  - component: {fileID: 7584908533266974671}
   - component: {fileID: 218261927782458713}
   - component: {fileID: 299998390531536362}
   - component: {fileID: 5489353634951363575}
@@ -455,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cae7a4ed75c0f4ebc4f41e8b03c180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempCharWhirlwind: {fileID: 0}
+  tempCharWhirlwind: {fileID: 7713224815798353239, guid: 76a2ca6e22529b64d8751b33ad000664, type: 3}
 --- !u!114 &6604925453429425571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,20 +478,6 @@ MonoBehaviour:
   projectileDuration: 0
   projectileArea: 0
   charName: 0
---- !u!114 &7584908533266974671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7315459754386790506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcd3d720e90228498dce8919e09415c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  regenarationAmount: 0
-  wantToRegen: 0
 --- !u!114 &218261927782458713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,7 +677,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
