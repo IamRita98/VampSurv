@@ -24,9 +24,9 @@ public class WeaponStats : MonoBehaviour
     private void SetStats(CharacterName charName)
     {
         attackSpeed = wepStats[charName].weaponFireRate * cStats.attackSpeed; //This formula will make attacking take longer if cStats attackspeed is > 1
-        damage = wepStats[charName].weaponDmg * cStats.damage;
+        damage = wepStats[charName].weaponDmg * cStats.intensity;
         projectileSpeed = wepStats[charName].weaponProjSpeed * cStats.projectileSpeed;
-        projectileDuration = wepStats[charName].weaponProjDur * cStats.projectileDuration;
+        projectileDuration = wepStats[charName].weaponProjDur * cStats.duration;
         projectileArea = wepStats[charName].weaponProjArea * cStats.projectileArea;
     }
 
@@ -36,5 +36,10 @@ public class WeaponStats : MonoBehaviour
             (atkSpeed: 4, dmg: 10, projSpeed: 3, projDur: 1, projArea: 1));
 
         SetStats(cStats.charName);
+    }
+
+    public void ChangeDamage(float amountToChange)
+    {
+        damage += amountToChange;
     }
 }

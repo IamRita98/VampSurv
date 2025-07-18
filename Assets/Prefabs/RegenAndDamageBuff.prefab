@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4032803154207019298}
-  - component: {fileID: 6442187289817911258}
   - component: {fileID: 6732059282847707722}
+  - component: {fileID: 6442187289817911258}
   m_Layer: 0
   m_Name: RegenAndDamageBuff
   m_TagString: Untagged
@@ -33,6 +33,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6732059282847707722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836336134419443166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50544c6b57e4add4c8a94f4bd73422d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6442187289817911258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,15 +59,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLeft: 0
   timerComplete: 0
---- !u!114 &6732059282847707722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836336134419443166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50544c6b57e4add4c8a94f4bd73422d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
