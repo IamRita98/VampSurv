@@ -9,7 +9,10 @@ public class DealDamageToEnemy : MonoBehaviour
 
     public static event System.Action<GameObject, float> onEnemyDamaged;
 
-    
+    /// <summary>
+    /// This will deal damage to the enemy once
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Enemy")) return;
@@ -23,5 +26,14 @@ public class DealDamageToEnemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    /// <summary>
+    /// This will deal damage to the enemy every frame it stays in the collider
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
     }
 }

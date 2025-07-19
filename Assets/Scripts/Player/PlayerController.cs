@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     bool abilityOneIsOnCooldown = false;
     float abilityTwoCooldownTimer;
     bool abilityTwoIsOnCooldown = false;
+    float abilityThreeCooldownTimer;
+    bool abilitThreeIsOnCooldown = false;
 
     float tempCharWhirlwindAbilityBaseCooldown = 6;
     float tempCharRegenAndDamageBuffBaseCooldown = 15;

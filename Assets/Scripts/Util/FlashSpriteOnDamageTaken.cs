@@ -4,7 +4,7 @@ public class FlashSpriteOnDamageTaken : MonoBehaviour
 {
     SpriteRenderer sRend;
     float internalTimer;
-    float flashDuration = .15f;
+    float flashDuration;
     bool startTimer = false;
     Color startingColor;
     Color flashColor;
@@ -35,6 +35,7 @@ public class FlashSpriteOnDamageTaken : MonoBehaviour
             startingColor = sRend.color;
             startingColorIsSet = true;
         }
+        flashDuration = .15f;
         flashColor = new Color(1, .75f, .75f);
         sRend.color = flashColor;
         startTimer = true;
@@ -48,6 +49,7 @@ public class FlashSpriteOnDamageTaken : MonoBehaviour
             startingColor = sRend.color;
             startingColorIsSet = true;
         }
+        flashDuration = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>().invincibilityTimer;
         flashColor = new Color(1, .4f, .4f);
         sRend.color = flashColor;
         startTimer = true;
