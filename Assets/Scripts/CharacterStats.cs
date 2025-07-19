@@ -6,6 +6,7 @@ public class CharacterStats : MonoBehaviour
     public float currentHP;
     public float maxHP;
     public float hpRegen;
+    public float invincibilityTimer;
     public float intensity;
     public float speed;
     public float abilityCooldown;
@@ -47,6 +48,7 @@ public class CharacterStats : MonoBehaviour
     private void SetStats(CharacterName charName)
     {
         maxHP = charStats[charName].hp;
+        invincibilityTimer = charStats[charName].invinciblityTimer;
         speed = charStats[charName].speed;
         intensity = charStats[charName].intensity;
         abilityCooldown = charStats[charName].abilityCooldown;
@@ -59,23 +61,20 @@ public class CharacterStats : MonoBehaviour
     }
 
     private void InstantiateDict()
-    {//AtkSpeed is more like AttackTimer i.e atkSpeed 5 means they will swing their weapon every 5 seconds
-        //It's prob a good idea to make things like AtkSpeed here a stat like 1.2 then have a base attack speed stat for weapons
-        //Then when they get a buff thats +20% attack speed we can apply it as * 1.2 to this stat
-        //PC's
+    {
         charStats.Add(CharacterName.TempChar, new StatConstructor
-            (health: 100, healthRegen: .2f, dmgIntensity: 1,  spd: 3,
+            (health: 100, healthRegen: .2f, invincTimer: .5f, dmgIntensity: 1,  spd: 3,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
 
 
         //Enemies
         charStats.Add(CharacterName.Zombie, new StatConstructor
-            (health: 25, healthRegen: 0, dmgIntensity: 5, spd: 1.75f,
+            (health: 25, healthRegen: 0, invincTimer: 0, dmgIntensity: 5, spd: 1.75f,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
         charStats.Add(CharacterName.TankyZombie, new StatConstructor
-            (health: 55, healthRegen: 0, dmgIntensity: 10, spd: 1.4f,
+            (health: 55, healthRegen: 0, invincTimer: 0,  dmgIntensity: 10, spd: 1.4f,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
 

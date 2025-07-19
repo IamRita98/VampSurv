@@ -290,23 +290,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1307847468 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7500177314811294746, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
-  m_PrefabInstance: {fileID: 307014938336155310}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1307847471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307847468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 624b9e42703ef834eb04a3eedbcb3e01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1636464049
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,22 +507,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5699893106843934805, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
-      propertyPath: tempCharRegenAndDamageBuff
-      value: 
-      objectReference: {fileID: 1836336134419443166, guid: c8d9f286e99b92a49bc398326bd877e4, type: 3}
-    - target: {fileID: 6971696946607418505, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8301887
-      objectReference: {fileID: 0}
-    - target: {fileID: 6971696946607418505, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
-      propertyPath: m_Color.g
-      value: 0.72654426
-      objectReference: {fileID: 0}
-    - target: {fileID: 6971696946607418505, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
-      propertyPath: m_Color.r
-      value: 0.41901034
-      objectReference: {fileID: 0}
     - target: {fileID: 7315459754386790506, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -547,10 +514,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7500177314811294746, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307847471}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9c25a632879c444a68d6ae530d48bc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
