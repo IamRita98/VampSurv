@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8126806076384937987}
   - component: {fileID: 5046063863071419778}
   - component: {fileID: 1157754401672436168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022483398351006413}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponSpotL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,6 +148,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3443856567039852498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &786430627533201782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6246580663828214195}
+  - component: {fileID: 6724620645531139348}
+  - component: {fileID: 8143651443352573721}
+  m_Layer: 7
+  m_Name: PickupArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6246580663828214195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786430627533201782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3266423197532749621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &6724620645531139348
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786430627533201782}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 3.5
+--- !u!114 &8143651443352573721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786430627533201782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b34d4e4f151ac43bbcd2ab17db411b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1659698035144235992
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +241,7 @@ GameObject:
   - component: {fileID: 8479600834658380862}
   - component: {fileID: 514587943300163143}
   - component: {fileID: 1724406230417348171}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -297,7 +378,7 @@ GameObject:
   - component: {fileID: 2921504074274140537}
   - component: {fileID: 7401714538763936197}
   - component: {fileID: 4684969915668469424}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 330958178909680948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponSpotR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,9 +497,10 @@ GameObject:
   - component: {fileID: 5489353634951363575}
   - component: {fileID: 6580455472034380422}
   - component: {fileID: 3456020153997289665}
+  - component: {fileID: 3367612437052826729}
   - component: {fileID: 3035703414892471132}
   - component: {fileID: 4668784057863745160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -441,6 +523,7 @@ Transform:
   - {fileID: 3443856567039852498}
   - {fileID: 3499179764948756040}
   - {fileID: 7603626345511585375}
+  - {fileID: 6246580663828214195}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5699893106843934805
@@ -551,6 +634,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e5a066ea4db054b97eb3518f15bb22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3367612437052826729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315459754386790506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ab919fb41394a4e92db810fb3b7203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exp: 0
+  currentLevel: 0
+  expToNextLevel: 0
+  baseExpToNextLevel: 10
 --- !u!50 &3035703414892471132
 Rigidbody2D:
   serializedVersion: 5
@@ -626,7 +725,7 @@ GameObject:
   - component: {fileID: 3443856567039852498}
   - component: {fileID: 6971696946607418505}
   - component: {fileID: 6089755030700814911}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

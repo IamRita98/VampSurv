@@ -9,6 +9,8 @@ TagManager:
   - Attack
   - Enemy
   - EnemyHolder
+  - DropHolder
+  - EXPDrop
   layers:
   - Default
   - TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Pickups
+  - PickupArea
+  - Player
   - 
   - 
   - 

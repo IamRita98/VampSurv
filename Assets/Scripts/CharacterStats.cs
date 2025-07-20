@@ -63,18 +63,18 @@ public class CharacterStats : MonoBehaviour
     private void InstantiateDict()
     {
         charStats.Add(CharacterName.TempChar, new StatConstructor
-            (health: 100, healthRegen: .2f, invincTimer: .5f, dmgIntensity: 1,  spd: 3,
+            (health: 100, healthRegen: .2f, invincTimer: .5f, dmgIntensity: 1,  spd: 2.5f,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
 
 
         //Enemies
         charStats.Add(CharacterName.Zombie, new StatConstructor
-            (health: 25, healthRegen: 0, invincTimer: 0, dmgIntensity: 5, spd: 1.75f,
+            (health: 25, healthRegen: 0, invincTimer: 0, dmgIntensity: 5, spd: 1.25f,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
         charStats.Add(CharacterName.TankyZombie, new StatConstructor
-            (health: 55, healthRegen: 0, invincTimer: 0,  dmgIntensity: 10, spd: 1.4f,
+            (health: 55, healthRegen: 0, invincTimer: 0,  dmgIntensity: 10, spd: .9f,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8378345765226271909}
   - component: {fileID: 1106344359765470291}
   - component: {fileID: 4561964073493392682}
+  - component: {fileID: -7464535679473623400}
   - component: {fileID: 4171521078920729396}
   - component: {fileID: 661060528992525070}
   m_Layer: 0
@@ -109,6 +110,7 @@ MonoBehaviour:
   currentHP: 0
   maxHP: 0
   hpRegen: 0
+  invincibilityTimer: 0
   intensity: 0
   speed: 0
   abilityCooldown: 0
@@ -166,6 +168,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624b9e42703ef834eb04a3eedbcb3e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7464535679473623400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8618075588746415337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738df3c3c1ce2a74c8ab1f14f5bb89cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expDrop: {fileID: 6705535797587347096, guid: 1a2f95afa65d18d4fa706020a3a77c65, type: 3}
 --- !u!50 &4171521078920729396
 Rigidbody2D:
   serializedVersion: 5
