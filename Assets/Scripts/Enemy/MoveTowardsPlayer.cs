@@ -5,27 +5,43 @@ public class MoveTowardsPlayer : MonoBehaviour
     GetPlayerPos getPlayerPos;
     Rigidbody2D rb;
     CharacterStats cStats;
-    Vector2 direction;
-    Vector2 currentPos;
-    Vector2 playerPos;
+    public Vector2 direction;
+    public Vector2 currentPos;
+    public Vector2 playerPos;
+    public float speed;
+
+    public bool wantToMoveTowardsPlayer = true;
 
     private void Start()
     {
         getPlayerPos = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GetPlayerPos>();
         rb = GetComponent<Rigidbody2D>();
         cStats = GetComponent<CharacterStats>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     private void Update()
     {
-        rb.linearVelocity = Vector2.zero;
+        if (!wantToMoveTowardsPlayer) return;
 
+        if (cStats != null)
+        {
+            speed = cStats.speed;
+        }
+
+        GetDirection();
+        direction.Normalize();
+        transform.Translate(direction * (speed * Time.deltaTime));
+    }
+
+    void GetDirection()
+    {
         currentPos = transform.position;
         playerPos = getPlayerPos.playerPos;
         direction = playerPos - currentPos;
-        direction.Normalize();
-        transform.Translate(direction * (cStats.speed * Time.deltaTime));
-
-        //transform.position = Vector2.MoveTowards(currentPos, playerPos, cStats.speed * Time.deltaTime);
     }
 }
