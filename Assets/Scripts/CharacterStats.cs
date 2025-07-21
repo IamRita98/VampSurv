@@ -20,13 +20,12 @@ public class CharacterStats : MonoBehaviour
     public enum CharacterName
     {
         TempChar,
-        FillerChar,
+        Hlupiek,
 
         Zombie,
         TankyZombie
     }
     public CharacterName charName;
-
 
     Dictionary<CharacterName, StatConstructor> charStats = new();
 
@@ -69,6 +68,9 @@ public class CharacterStats : MonoBehaviour
             (health: 100, healthRegen: .2f, invincTimer: .5f, dmgIntensity: 1, spd: 2.5f, pickupSize: 3,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
+        charStats.Add(CharacterName.Hlupiek, new StatConstructor
+            (health: 100, healthRegen: .2f, invincTimer: .5f, dmgIntensity: 1.15f, spd: 2f, pickupSize: 3,
+            abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
 
         //Enemies
