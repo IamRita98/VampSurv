@@ -15,9 +15,9 @@ public class StatConstructor
     public float attackSpeed;
     public float projectileSpeed;
     public float duration;
-    public float projectileArea;
+    public float attackArea;
 
-    public StatConstructor(float health, float healthRegen, float invincTimer, float spd, float abilityCD, float dmgIntensity, float pickupSize, float atkSpeed, float projSpeed, float dur, float projArea)
+    public StatConstructor(float health, float healthRegen, float invincTimer, float spd, float abilityCD, float dmgIntensity, float pickupSize, float atkSpeed, float projSpeed, float dur, float atkArea)
     {
         hp = health;
         hpRegen = healthRegen;
@@ -30,6 +30,6 @@ public class StatConstructor
         attackSpeed = atkSpeed;
         projectileSpeed = projSpeed;
         duration = dur;
-        projectileArea = projArea;
+        attackArea = atkArea;
     }
 }

@@ -15,7 +15,7 @@ public class CharacterStats : MonoBehaviour
     public float attackSpeed;
     public float projectileSpeed;
     public float duration;
-    public float projectileArea;
+    public float attackArea;
 
     public enum CharacterName
     {
@@ -59,28 +59,28 @@ public class CharacterStats : MonoBehaviour
         attackSpeed = charStats[charName].attackSpeed;
         projectileSpeed = charStats[charName].projectileSpeed;
         duration = charStats[charName].duration;
-        projectileArea = charStats[charName].projectileArea;
+        attackArea = charStats[charName].attackArea;
     }
 
     private void InstantiateDict()
     {
         charStats.Add(CharacterName.TempChar, new StatConstructor
             (health: 100, healthRegen: .2f, invincTimer: .5f, dmgIntensity: 1, spd: 2.5f, pickupSize: 3,
-            abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
+            abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, atkArea: 1));
 
         charStats.Add(CharacterName.Hlupiek, new StatConstructor
             (health: 100, healthRegen: .2f, invincTimer: .5f, dmgIntensity: 1.15f, spd: 2f, pickupSize: 3,
-            abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
+            abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, atkArea: 1));
 
 
         //Enemies
         charStats.Add(CharacterName.Zombie, new StatConstructor
             (health: 25, healthRegen: 0, invincTimer: 0, dmgIntensity: 5, spd: 1.25f, pickupSize: 0,
-            abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
+            abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, atkArea: 1));
 
         charStats.Add(CharacterName.TankyZombie, new StatConstructor
             (health: 55, healthRegen: 0, invincTimer: 0,  dmgIntensity: 10, spd: .9f, pickupSize: 0,
-            abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
+            abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, atkArea: 1));
 
 
         SetStats(charName);

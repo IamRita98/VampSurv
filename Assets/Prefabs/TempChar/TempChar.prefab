@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentChar: {fileID: 7315459754386790506}
   swordWave: {fileID: 7646245474446852712, guid: 105b064005f675a4c93a12e05b80174d, type: 3}
+  hlupiekClaw: {fileID: 0}
 --- !u!114 &1157754401672436168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,8 +539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cae7a4ed75c0f4ebc4f41e8b03c180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempCharWhirlwind: {fileID: 7713224815798353239, guid: 76a2ca6e22529b64d8751b33ad000664, type: 3}
-  tempCharRegenAndDamageBuff: {fileID: 1836336134419443166, guid: c8d9f286e99b92a49bc398326bd877e4, type: 3}
+  abilityOne: {fileID: 7713224815798353239, guid: 76a2ca6e22529b64d8751b33ad000664, type: 3}
+  abilityTwo: {fileID: 1836336134419443166, guid: c8d9f286e99b92a49bc398326bd877e4, type: 3}
 --- !u!114 &6604925453429425571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +564,7 @@ MonoBehaviour:
   attackSpeed: 0
   projectileSpeed: 0
   duration: 0
-  projectileArea: 0
+  attackArea: 0
   charName: 0
 --- !u!114 &218261927782458713
 MonoBehaviour:

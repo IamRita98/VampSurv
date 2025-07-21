@@ -87,13 +87,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public GameObject tempCharWhirlwind;
+    public GameObject abilityOne;
     void UseAbilityOne()
     {
         switch (cStats.charName)
         {
             case CharacterStats.CharacterName.TempChar:
-                Instantiate(tempCharWhirlwind, transform.position, Quaternion.identity, gameObject.transform);
+                Instantiate(abilityOne, transform.position, Quaternion.identity, gameObject.transform);
                 break;
         }
     }
@@ -108,13 +108,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public GameObject tempCharRegenAndDamageBuff;
+    public GameObject abilityTwo;
     void UseAbilityTwo()
     {
         switch (cStats.charName)
         {
             case CharacterStats.CharacterName.TempChar:
-                Instantiate(tempCharRegenAndDamageBuff, transform.position, Quaternion.identity, gameObject.transform);
+                Instantiate(abilityTwo, transform.position, Quaternion.identity, gameObject.transform);
                 break;
         }
     }

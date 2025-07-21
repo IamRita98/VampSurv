@@ -3,7 +3,8 @@ using UnityEngine;
 public class SpriteFlipper : MonoBehaviour
 {
     Vector3 target;
-    bool isFlipped;
+    public bool wantToFlip = true;
+    public bool isFlipped;
     GetMousePos mousePos;
     SpriteRenderer sRend;
     string attachedGO;
@@ -18,6 +19,7 @@ public class SpriteFlipper : MonoBehaviour
 
     private void Update()
     {
+        if (!wantToFlip) return;
         FlipSprite();
     }
 
