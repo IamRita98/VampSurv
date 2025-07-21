@@ -4,12 +4,8 @@ public class WhirlwindBehaviour : MonoBehaviour
 {
     Timer timer;
     CharacterStats cStats;
+    WeaponStats wStats;
     DealDamageToEnemy dealDamageToEnemy;
-
-    //BaseStats
-    float baseDamage = 10;
-    float baseDuration = .5f;
-    float baseArea = 1;
 
     //AdjustedStats
     float damage;
@@ -18,13 +14,14 @@ public class WhirlwindBehaviour : MonoBehaviour
 
     private void Start()
     {
+        wStats = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponStats>();
         timer = GetComponent<Timer>();
         cStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
         dealDamageToEnemy = GetComponent<DealDamageToEnemy>();
 
-        damage = baseDamage * cStats.intensity;
-        duration = baseDuration * cStats.duration;
-        area = baseArea * cStats.projectileArea;
+        damage = wStats.damage;
+        duration = wStats.projectileDuration;
+        area = wStats.projectileArea;
 
         dealDamageToEnemy.damageToDeal = damage;
 

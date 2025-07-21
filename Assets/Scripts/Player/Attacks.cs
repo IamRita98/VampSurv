@@ -4,7 +4,6 @@ using UnityEngine;
 public class Attacks : MonoBehaviour
 {
     public GameObject parentChar;
-    public GameObject swordWave;
     Timer timer;
 
     CharacterStats cStats;
@@ -31,11 +30,23 @@ public class Attacks : MonoBehaviour
             case CharacterStats.CharacterName.TempChar:
                 SwordAttack();
                 break;
+            case CharacterStats.CharacterName.Hlupiek:
+                HlupiekClawAttack();
+                break;
         }
     }
 
+    public GameObject swordWave;
     private void SwordAttack()
     {
-        GameObject instantiatedAttack = Instantiate(swordWave, transform.parent.position, Quaternion.identity);
+        GameObject instantiatedAttack = Instantiate
+            (swordWave, transform.parent.position, Quaternion.identity);
+    }
+
+    public GameObject hlupiekClaw;
+    void HlupiekClawAttack()
+    {
+        GameObject instantiatedAttack = Instantiate
+            (hlupiekClaw, transform.position, Quaternion.identity, transform);
     }
 }

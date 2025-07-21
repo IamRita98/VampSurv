@@ -27,13 +27,17 @@ public class WeaponStats : MonoBehaviour
         damage = wepStats[charName].weaponDmg * cStats.intensity;
         projectileSpeed = wepStats[charName].weaponProjSpeed * cStats.projectileSpeed;
         projectileDuration = wepStats[charName].weaponProjDur * cStats.duration;
-        projectileArea = wepStats[charName].weaponProjArea * cStats.projectileArea;
+        projectileArea = wepStats[charName].weaponProjArea * cStats.attackArea;
     }
 
     private void InstanDict()
     {
         wepStats.Add(CharacterName.TempChar, new WeaponStatConstructor
             (atkSpeed: 4, dmg: 10, projSpeed: 3, projDur: 1, projArea: 1));
+
+        wepStats.Add(CharacterName.Hlupiek, new WeaponStatConstructor
+            (atkSpeed: 2, dmg: 4, projSpeed: 0, projDur: .4f, projArea: 1));
+
 
         SetStats(cStats.charName);
     }
