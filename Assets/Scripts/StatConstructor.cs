@@ -9,6 +9,7 @@ public class StatConstructor
     public float speed;
     public float abilityCooldown;
     public float intensity;
+    public float pickupRadius;
 
     //Weapon stats
     public float attackSpeed;
@@ -16,7 +17,7 @@ public class StatConstructor
     public float duration;
     public float projectileArea;
 
-    public StatConstructor(float health, float healthRegen, float invincTimer, float spd, float abilityCD, float dmgIntensity, float atkSpeed, float projSpeed, float dur, float projArea)
+    public StatConstructor(float health, float healthRegen, float invincTimer, float spd, float abilityCD, float dmgIntensity, float pickupSize, float atkSpeed, float projSpeed, float dur, float projArea)
     {
         hp = health;
         hpRegen = healthRegen;
@@ -24,6 +25,7 @@ public class StatConstructor
         speed = spd;
         abilityCooldown = abilityCD;
         intensity = dmgIntensity;
+        pickupRadius = pickupSize;
         
         attackSpeed = atkSpeed;
         projectileSpeed = projSpeed;

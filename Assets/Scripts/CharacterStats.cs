@@ -10,6 +10,7 @@ public class CharacterStats : MonoBehaviour
     public float intensity;
     public float speed;
     public float abilityCooldown;
+    public float pickupRadius;
 
     public float attackSpeed;
     public float projectileSpeed;
@@ -53,6 +54,8 @@ public class CharacterStats : MonoBehaviour
         intensity = charStats[charName].intensity;
         abilityCooldown = charStats[charName].abilityCooldown;
         hpRegen = charStats[charName].hpRegen;
+        pickupRadius = charStats[charName].pickupRadius;
+        
 
         attackSpeed = charStats[charName].attackSpeed;
         projectileSpeed = charStats[charName].projectileSpeed;
@@ -63,18 +66,18 @@ public class CharacterStats : MonoBehaviour
     private void InstantiateDict()
     {
         charStats.Add(CharacterName.TempChar, new StatConstructor
-            (health: 100, healthRegen: .2f, invincTimer: .5f, dmgIntensity: 1,  spd: 2.5f,
+            (health: 100, healthRegen: .2f, invincTimer: .5f, dmgIntensity: 1, spd: 2.5f, pickupSize: 3,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
 
 
         //Enemies
         charStats.Add(CharacterName.Zombie, new StatConstructor
-            (health: 25, healthRegen: 0, invincTimer: 0, dmgIntensity: 5, spd: 1.25f,
+            (health: 25, healthRegen: 0, invincTimer: 0, dmgIntensity: 5, spd: 1.25f, pickupSize: 0,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
         charStats.Add(CharacterName.TankyZombie, new StatConstructor
-            (health: 55, healthRegen: 0, invincTimer: 0,  dmgIntensity: 10, spd: .9f,
+            (health: 55, healthRegen: 0, invincTimer: 0,  dmgIntensity: 10, spd: .9f, pickupSize: 0,
             abilityCD: 1, atkSpeed: 1, projSpeed: 1, dur: 1, projArea: 1));
 
 
